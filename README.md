@@ -1,12 +1,15 @@
 # React Demo
 
-Open index.html in *http://localhost* om de demo te bekijken.
-Je kan rechtstreeks in de `.js` files werken om de componenten aan te passen.
-Je hebt *geen* build process nodig! De demo werkt live.
+Dit is een eenvoudige demo om de basis concepten van React te oefenen.
 
-### Tips
+Open index.html in *http://localhost* om de demo te bekijken, bv. met de [live server plugin voor VS Code](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
 
-Tips.js laat zien hoe een leeg React component er uit ziet
+Je kan rechtstreeks in de `.js` files werken om de React componenten aan te passen.
+Je hebt *geen* build process nodig! Je code werkt meteen.
+
+### De componenten
+
+*Tips.js* laat zien hoe een leeg React component er uit ziet. Dit lijkt erg op een normale OOP Class notatie. Je hebt een `render` functie om HTML te tonen.
 
 ```javascript
 class Tips extends React.Component {
@@ -27,7 +30,9 @@ class Tips extends React.Component {
 
 ### App
 
-App.js laat zien hoe je meerdere componenten in je app kan laden. In dit geval worden Tips en Ideas getoond.
+Het "top level" component bevat meestal alleen de andere componenten die je wil gebruiken.
+
+*App.js* laat zien hoe je meerdere componenten in je app kan laden. In dit geval worden Tips en Ideas getoond.
 ```javascript
 class App extends React.Component {
     constructor() {
@@ -46,9 +51,9 @@ class App extends React.Component {
 }
 ```
 
-### Ideas
+### State
 
-In Ideas zie je hoe je met variabelen kan werken. Gebruik `this.state` en `this.setState` om waarden bij te houden in je class.
+In *Ideas.js* zie je hoe je met variabelen kan werken. Gebruik `this.state` en `this.setState` om waarden bij te houden in je class.
 ```javascript
 // begin state
 this.state = {
