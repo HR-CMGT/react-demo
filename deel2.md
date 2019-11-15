@@ -27,7 +27,7 @@ class Ideas extends React.Component {
 
 ## IF statement
 
-Als je een HTML tag alleen wil tonen onder bepaalde voorwaarden, dan kan je *conditional rendering* gebruiken. In dit voorbeeld werkt de `&&` als een `if-else`. Als de `awesome` variabele `true` is, dan wordt het `<h1>` element getoond:
+Als je een HTML tag alleen wil tonen onder bepaalde voorwaarden, dan kan je *conditional rendering* gebruiken. In dit voorbeeld werkt de `&&` als een `if`. Als de `awesome` variabele `true` is, dan wordt het `<h1>` element getoond:
 
 ```javascript
 class Ideas extends React.Component {
@@ -47,27 +47,29 @@ class Ideas extends React.Component {
 }
 ```
 
-### ELSE statement
+### IF met tijdelijke variabele
 
-Een else werkt ongeveer hetzelfde, maar nu gebruik je een *ternary expression* 
+Je kan ook een tijdelijke variabele aanmaken met een ouderwets `if` statement en die gebruiken in je HTML code:
 
 ```javascript
 render() {
+
+    let title = "Boring"
+    if(this.state.awesome) {
+        title = "Awesome!"
+    }
+
     return (
         <article>
-            {this.state.awesome ? (
-                <h1>React is awesome!</h1>
-            ) : (
-                <h1>Oh no 😢</h1>
-            )};
+            <h1>{title}</h1>
         </article>
     )
 }
 ```
 
-### IF else buiten return statement
+### IF met meerdere return statements
 
-Als je wat meer uitgebreide HTML wil teruggeven met een `if-else`, dan is het leesbaarder om de logica buiten de `return` te zetten:
+Als je meer uitgebreide HTML wil teruggeven met een `if-else`, dan is het leesbaarder om meerdere `return` statements te gebruiken:
 
 ```javascript
 render(){
@@ -87,7 +89,7 @@ render(){
 }
 ```
 
-## CSS classes toevoegen
+## CSS classes 
 
 ```javascript
 render() {
