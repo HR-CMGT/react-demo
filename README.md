@@ -7,7 +7,7 @@ Open index.html in *http://localhost* om de demo te bekijken, bv. met de [live s
 Je kan rechtstreeks in de `.js` files werken om de React componenten aan te passen.
 Je hebt *geen* build process nodig! Je code werkt meteen.
 
-### De componenten
+## Een React component
 
 *Tips.js* laat zien hoe een leeg React component er uit ziet. Dit lijkt erg op een normale OOP Class notatie. Je hebt een `render` functie om HTML te tonen.
 
@@ -28,7 +28,7 @@ class Tips extends React.Component {
 }
 ```
 
-### App
+## App component
 
 Het "top level" component bevat meestal alleen de andere componenten die je wil gebruiken.
 
@@ -51,51 +51,84 @@ class App extends React.Component {
 }
 ```
 
-### State
+## Button events
 
-In *Ideas.js* zie je hoe je met variabelen kan werken. Gebruik `this.state` en `this.setState` om waarden bij te houden in je class.
-```javascript
-// begin state
-this.state = {
-    title: "Greening"
-}
+Gebruik deze syntax om functies in je component aan te roepen vanuit een button.
 
-// state aanpassen
-this.setState({
-    title: "No more ideas for today"
-}
-```
-
-In je HTML kan je { } karakters gebruiken om variabelen uit de state te tonen.
-```javascript
-<h1>{this.state.title}</h1>
-```
-
-
-### Button
-
-Gebruik deze syntax om de scope van je buttons gelijk te houden aan de scope van je app.
 ```javascript
 class Ideas extends React.Component {
     constructor() {
         super()
     }
 
-    changeIdeas() {
+    buttonExample() {
         console.log("button was clicked!")
     }
 
     render() {
         return (
             <div>
-                <button onClick={() => this.changeIdeas()}>Change ideas</button>
+                <button onClick={() => this.buttonExample()}>Show console message</button>
             </div>
         );
     }
 }
 ```
 
-### JSON
+## State
+
+Een class kan properties en methods hebben, net zoals in een "gewone" OOP class. In React heb je een speciale `State` variabele. Deze wordt gebruikt om de HTML DOM automatisch te updaten als die variabele verandert. 
+
+Gebruik dus altijd `state` als je wil dat een waarde in je interface gebruikt kan worden. 
+
+#### State aanmaken
+```
+this.state = {
+    title:"De titel van mijn app",
+    score:100,
+    hiscore:false
+}
+```
+#### State wijzigen
+
+Gebruik altijd `this.setState({score:200})` om variabelen in de state aan te passen. 
+
+#### State tonen
+
+Je kan variabelen uit je state tonen in je HTML componenten: `<h1>{this.state.title}</h1>`
+
+## Voorbeeld
+
+```javascript
+class Ideas extends React.Component {
+    constructor() {
+        super()
+        // begin state
+        this.state = {
+            title: "Dit is een React Demo"
+        }
+    }
+
+    changeTitle() {
+        // state aanpassen
+        this.setState({
+            title: "Dit is een andere titel"
+        }
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>{this.state.title}</h1>
+                <button onClick={() => this.changeTitle()}>Change title</button>
+            </div>
+        );
+    }
+}
+```
+
+
+## JSON
 
 Door externe JSON in te laden met `fetch` kan je de state van je app aanpassen.
 
@@ -124,16 +157,6 @@ class Ideas extends React.Component {
 }
 ```
 
-## Meer lezen
+# Deel 2
 
-[Lees meer over componenten, props en listeners](https://reactjs.org)
-
-## Production ready
-
-De code van deze demo wordt live omgezet naar "normale" HTML, maar dat is traag.
-Om een "echte" React site te maken moet je de "production" versie van React gebruiken, en je moet vantevoren je [Componenten omzetten naar HTML met een build tool](https://reactjs.org/docs/add-react-to-a-website.html).
-
-```html
-<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
-```
+[Ga verder met loops, if statements en props in deel 2 van deze demo!](./deel2.md)
