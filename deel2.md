@@ -1,6 +1,11 @@
-# React basics deel 2
+# React Workshop deel 2
 
-## Loops
+- For loops
+- If statements
+- Props
+- Reageren op Child Components
+
+## For Loops
 
 Als je de elementen uit een array wil tonen als HTML elementen, dan moet je voor elke array entry een element (bv. `<li>`) genereren. Dat doe je met de `map()` functie:
 
@@ -27,29 +32,28 @@ class Ideas extends React.Component {
 
 ## IF statement
 
-Als je een HTML tag alleen wil tonen onder bepaalde voorwaarden, dan kan je *conditional rendering* gebruiken. In dit voorbeeld werkt de `&&` als een `if`. Als de `awesome` variabele `true` is, dan wordt het `<h1>` element getoond:
+Als je een element alleen wil tonen onder bepaalde voorwaarden, dan kan je *conditional rendering* gebruiken. In dit voorbeeld werkt de `&&` als een `if`. Als de `awesome` variabele `true` is, dan wordt het `<h1>` element getoond:
 
-```javascript
-class Ideas extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            awesome: true
-        }
-    }
-    render(){
-        return (
-            <article>
-                {this.state.awesome && <h1>React is awesome!</h1>};
-            </article>
-        )
-    }
+```
+this.state = {
+    awesome: true
 }
+
+<article>
+    {this.state.awesome && <h1>React is awesome!</h1>}
+</article>
+```
+Voor een korte `if else` kan je de `ternary operator` gebruiken:
+
+```
+<button>
+    {this.state.isToggleOn ? 'ON' : 'OFF'}
+</button>
 ```
 
 ### IF met tijdelijke variabele
 
-Je kan ook een tijdelijke variabele aanmaken met een ouderwets `if` statement en die gebruiken in je HTML code:
+Vóór het `return` statement in je `render()` functie kan je met standaard javascript je `if` statements maken.
 
 ```javascript
 render() {
@@ -89,27 +93,6 @@ render(){
 }
 ```
 
-## CSS classes 
-
-```javascript
-render() {
-  return <span className="menu navigation-menu">Menu</span>
-}
-```
-
-### CSS class met IF 
-
-Soms wil je een bepaalde CSS class alleen toepassen als een voorwaarde true is. 
-```javascript
-render() {
-    let className = 'menu'
-    if (this.state.awesome) {
-        className += ' awesome'
-    }
-    return <span className={className}>Menu</span>
-}
-```
-
 # Voorbeeld: LIKE button
 
 Deze like button verdwijnt zodra je er op klikt. Dit werkt door een variabele op TRUE te zetten, en de component verschillend te renderen, afhankelijk van de variabele.
@@ -127,7 +110,7 @@ class LikeButton extends React.Component {
     }
 
     return (
-      <button { onClick: () => this.setState({ liked: true }) }>'Like'</button>
+      <button onClick={() => this.setState({ liked: true })}> 'Like'</button >
     )
   }
 }
@@ -146,7 +129,6 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <h4>React Demo App</h4>
                 <Player name="Erik"/>
                 <Player name="Bas"/>
             </div>
@@ -183,22 +165,90 @@ class Player extends React.Component {
 }
 ```
 
+### Props in een loop
+
+Props werken goed samen met for loops, omdat je dan elk component zijn eigen prop mee kan geven:
+
+```javascript
+render() {
+    const names = ["Bas", "Erik"]
+
+    return (
+        <div>
+            {names.map((name, i) => (
+                <Player key={i} name={name}/>
+            ))}
+        </div>
+    )
+}
+```
+# Reageren op Child Components
+
+Via props kan je data doorgeven naar Child components. 
+
+```html
+<App>
+    <Player name="Erik" />
+</App>
+```
+Je kan props ook gebruiken om te luisteren naar veranderingen in een child component.
+```html
+<App>
+    <PLayer onScoreChange={this.handleScoreChange} />
+</App>
+```
+
+## Voorbeeld
+
+In het parent component ziet dit er als volgt uit:
+```javascript
+class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {score: 0}
+  }
+
+  handleScoreChange(s) {
+    this.setState({score: s})
+  }
+
+  render() {
+    return (
+      <div>
+        <Player onScoreChange={()=>this.handleScoreChange()} />
+      </div>
+    );
+  }
+}
+```
+
+In het child component kan je nu met `this.props.onScoreChange()` een event uitsturen waar de parent op kan reageren:
+
+```javascript
+class Player extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  buttonClicked() {
+    this.props.onScoreChange(20)
+  }
+
+  render() {
+    return (
+        <div>
+            <button onClick={() => this.buttonClicked()}>Test</button>
+        </div>
+    );
+  }
+}
+```
+
+# Vervolg workshop
+
+ - [Deel 3](./deel3.md) - Werken met CSS
+ - [Deel 4](./deel4.md) - Een React app compileren
 
 # Meer lezen
 
-[Lees hier alles over de belangrijkste React begrippen](https://reactjs.org/docs/hello-world.html)
-
-# Een React site online zetten
-
-De code van deze demo wordt live omgezet naar "normale" HTML. Dat werkt wel voor developen en oefenen, maar is te traag voor een "echte" website.
-Zodra je een React site online zet, moet je de "production" versie van React gebruiken:
-
-```html
-<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
-```
-
-## Code compileren
-
-Ook moet je de Babel script tag uit je HTML verwijderen, omdat het beter is om je [React code vantevoren te compileren, in plaats van live in de browser](https://reactjs.org/docs/add-react-to-a-website.html).
-
+https://reactjs.org/docs/hello-world.html

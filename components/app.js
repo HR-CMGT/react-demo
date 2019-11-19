@@ -14,4 +14,4 @@ class App extends React.Component {
     }
 }
 
-ReactDOM.render(<App />, window.root);
+ReactDOM.render(<App />, window.root)

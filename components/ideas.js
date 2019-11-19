@@ -4,7 +4,7 @@ class Ideas extends React.Component {
 
         // waarden moet je bijhouden in de STATE variabele
         this.state = {
-            title: "Greening",
+            title: "Ideas",
             ideas: ["Strand opruimen", "Straat schoon vegen"]
         }
     }
@@ -12,24 +12,14 @@ class Ideas extends React.Component {
     // waarden aanpassen via SETSTATE
     changeIdeas() {
         this.setState({
-            title: "No more ideas for today",
+            title: "No more ideas",
             ideas: ["Snel naar huis", "Donuts halen", "React leren"]
         });
     }
 
     // JSON bestand inladen
     loadJSON() {
-        fetch('./ideas.json')
-            .then((response) => response.json())
-            .then((data) => this.dataWasLoaded(data))
-            .catch((error) => console.error('help'))
-    }
-
-    dataWasLoaded(json) {
-        this.setState({
-            title: "Loaded ideas from JSON",
-            ideas: json.ideas
-        });
+        console.log("load JSON data")
     }
 
     // HTML tonen
@@ -45,7 +35,6 @@ class Ideas extends React.Component {
                 <h1>{this.state.title}</h1>
                 <ul>{listItems}</ul>
                 <button onClick={() => this.changeIdeas()}>Change ideas</button>
-                <button onClick={() => this.loadJSON()}>Load JSON</button>
             </div>
         );
     }
