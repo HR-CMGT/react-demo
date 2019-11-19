@@ -67,7 +67,7 @@ class Ideas extends React.Component {
 ```
 # Finished workshop files
 
-De finished files kan je vinden in de "finished" branch van deze repository.
+De finished files kan je vinden in de [finished branch](https://github.com/HR-CMGT/react-workshop/tree/finished) van deze repository.
 
 # Meer React concepten
 
@@ -88,4 +88,4 @@ Je weet nu genoeg om zelf verder te kunnen leren op de [React Tutorial Site](htt
 
 # Vervolg workshop
 
- - [Deel 4](./deel4.md) - Een React app compileren
+ - [Deel 4](./deel4.md) - Een React app live zetten

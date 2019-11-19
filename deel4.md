@@ -35,7 +35,7 @@ De volgende stap in React development is om alle React code lokaal te bouwen met
 
 # Finished workshop files
 
-De finished files kan je vinden in de "finished" branch van deze repository.
+De finished files kan je vinden in de [finished branch](https://github.com/HR-CMGT/react-workshop/tree/finished) van deze repository.
 
 
 
