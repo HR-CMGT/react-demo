@@ -25,6 +25,23 @@ Een React site bouw je op uit componenten, die zien er uit als HTML tags:
     </App>
 </body>
 ```
+
+## index.html
+
+In deze workshop laad je de React componenten als `JSX` file in je `index.html`
+
+```html
+<body>
+
+    <div id="root"></div>
+
+    <script src="./components/ideas.js" type="text/jsx"></script>
+    <script src="./components/tips.js" type="text/jsx"></script>
+    <script src="./components/app.js" type="text/jsx"></script>
+
+</body>
+```
+
 In deze workshop gebruiken we `class` notation voor React Componenten. Elke class heeft zijn eigen `.js` file. In `tips.js` kan je zien hoe een leeg React component er uit ziet. 
 
 ```javascript
@@ -70,21 +87,6 @@ Het top level component moet je handmatig aan de HTML DOM toevoegen met
 
 ```
 ReactDOM.render(<App />, window.root)
-```
-## index.html
-
-In deze workshop laad je de React componenten als `JSX` file in je `index.html`
-
-```html
-<body>
-
-    <div id="root"></div>
-
-    <script src="./components/ideas.js" type="text/jsx"></script>
-    <script src="./components/tips.js" type="text/jsx"></script>
-    <script src="./components/app.js" type="text/jsx"></script>
-
-</body>
 ```
 
 # Button events
