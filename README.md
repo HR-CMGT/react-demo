@@ -7,7 +7,7 @@ Je kan rechtstreeks in de `.js` files werken om de React componenten aan te pass
  - [Deel 1](./deel1.md) - Componenten, Button, State, Data laden
  - [Deel 2](./deel2.md) - FOR loop, IF statement, Props
  - [Deel 3](./deel3.md) - Werken met CSS
- - [Deel 4](./deel4.md) - Een React app compileren
+ - [Deel 4](./deel4.md) - Een React app compileren, Typescript
 
 # Wat is een SPA
 

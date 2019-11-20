@@ -1,41 +1,22 @@
+# Workshop files
+
+De uitgewerkte voorbeelden van deze workshop kan je vinden in de [finished branch](https://github.com/HR-CMGT/react-workshop/tree/finished) van deze repository.
+
 # Een React site online zetten
 
-In een live website gebruik je de "production" versie van React:
+Tot nu toe hebben we *live* in de browser de React JSX componenten omgezet naar normale HTML/Javascript. Voor de performance is het beter om dit vantevoren te doen.
 
-```html
-<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
-```
+## Babel Compiler
 
-Ook moet je de `babel.min.js` script tag uit je HTML verwijderen. Dit script zet je React components om naar HTML, maar het is eigenlijk niet logisch dat elke bezoeker van je site telkens opnieuw de HTML moet genereren.
+Je kan de Babel compiler gebruiken om JSX om te zetten naar JS. Dit is een eenvoudige stap waarbij je gewoon verder kan gaan met de code uit deze workshop. 
 
-## Babel React installeren
+> [Gebruik deze instructies om verder te gaan met de Babel Compiler](./babel.md).
 
-Zorg dat je [NodeJS](https://nodejs.org/en/) hebt geinstalleerd. Open een terminal in je projectfolder en typ
-```bash
-npm init -y
-npm install babel-cli@6 babel-preset-react-app@3
-```
-Je kan nu de live compiler aanzetten met
-```
-npx babel --watch src --out-dir . --presets react-app/prod 
-```
-Hiermee worden de `.js` files gegenereerd die je met `<script>` tags in je `index.html` file moet laden.
+## Create-React-App
 
-## Modules en Webpack
+Dit is een tool waarmee je grotere React apps gaat bouwen met modules en webpack. Dit is aan te raden als je de basics van React onder de knie hebt. 
 
-De volgende stap in React development is om alle React code lokaal te bouwen met `import` en `export` modules. Met [Create React App](https://create-react-app.dev) kan je dit in een paar regels code doen!
-
-# Meer lezen
-
-- [React Tutorial Site](https://reactjs.org/docs/hello-world.html)
-- [Adding react to a website](https://reactjs.org/docs/add-react-to-a-website.html).
+- [Create-React-App](https://create-react-app.dev/)
+- [Typescript met Create-React-App](https://create-react-app.dev/docs/adding-typescript/)
 - [Adding Routing to your app](https://reacttraining.com/react-router/web/guides/quick-start)
 - [Adding a Redux store to your app](https://react-redux.js.org/)
-
-# Finished workshop files
-
-De finished files kan je vinden in de [finished branch](https://github.com/HR-CMGT/react-workshop/tree/finished) van deze repository.
-
-
-
