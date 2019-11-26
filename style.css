@@ -1,0 +1,25 @@
+body {
+    background-color: rgb(182, 182, 182);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+div h1 {
+    margin-top: 0;
+}
+
+button {
+    font-size: 1em;
+    padding: 8px;
+}
+
+/* demo, dit kan weg, lees de CSS tutorial voor het stylen van CSS componenten */
+#root > div > div {
+    background-color: rgb(238, 238, 238);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}

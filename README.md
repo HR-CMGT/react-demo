@@ -1,29 +1,27 @@
-# React Workshop
+# React Workshop deel 1
 
 In deze workshop oefenen we de basis concepten van React. Open index.html in *http://localhost* om de demo te bekijken, bv. met de [live server plugin voor VS Code](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
 
 Je kan rechtstreeks in de `.js` files werken om de React componenten aan te passen.
 
- - [Deel 1](./deel1.md) - Componenten, Button, State, Data laden
- - [Deel 2](./deel2.md) - FOR loop, IF statement, Props
- - [Deel 3](./deel3.md) - Werken met CSS
- - [Deel 4](./deel4.md) - Een React app compileren, Typescript
-
-# Wat is een SPA
-
-Met React bouw je een **Single Page Application**, dat betekent dat je éénmalig een HTML pagina inlaadt. Die pagina bevat een volledige javascript applicatie die alle acties van de gebruiker bijhoudt.
-
+ - [Deel 1](./README.md) - Componenten, State, Button
+ - [Deel 2](./tutorial/deel2.md) - FOR loop, IF statement in een component
+ - [Deel 3](./tutorial/deel3.md) - JSON data laden
+ - [Deel 4](./tutorial/deel4.md) - Props, Reageren op Child Components
+ - [Deel 5](./tutorial/deel5.md) - CSS
+ 
 # Componenten
 
 Een React site bouw je op uit componenten, die zien er uit als HTML tags:
 
 ```html
-<body>
-    <App>
-        <Ideas/>
-        <Tips/>
-    </App>
-</body>
+<App>
+    <Navigation/>
+    <Products>
+        <LikeButton/>
+    </Products>
+    <Tips/>
+</App>
 ```
 
 ## index.html
@@ -65,7 +63,8 @@ In de `render` method kan je de HTML van je component plaatsen. Dit heet `JSX` n
 
 ## App component
 
-Het "top level" component bevat meestal alleen de andere componenten die je wil gebruiken. *App.js* laat zien hoe je meerdere componenten in je app kan laden. In dit geval worden Tips en Ideas getoond.
+Het "top level" component bevat meestal alleen de andere componenten die je wil gebruiken. 
+
 ```javascript
 class App extends React.Component {
     constructor() {
@@ -87,6 +86,58 @@ Het top level component moet je handmatig aan de HTML DOM toevoegen met
 
 ```
 ReactDOM.render(<App />, window.root)
+```
+
+# State
+
+Variabelen in het `state` object zijn *Reactive*. In de constructor zet je de state. Om de state te tonen in de UI gebruik je `{this.state...}` in je `render()` functie:
+
+### Voorbeeld
+
+```javascript
+class Tips extends React.Component {
+    constructor() {
+        super()
+        this.state = { title:"React Workshop" }
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>{this.state.title}</h1>
+            </div>
+        )
+    }
+}
+```
+
+### State veranderen buiten de constructor
+
+Buiten de constructor gebruik je altijd `setState` om state variabelen te veranderen. Voorbeeld:
+```javascript
+class Tips extends React.Component {
+    changeTitle(){
+        this.setState({title:"Just another React Workshop"})
+    }
+}
+```
+
+### Vorige state aanpassen
+
+Om een bestaande state aan te passen (bijvoorbeeld een nummer ophogen) moet je met een functie de vorige state opvragen:
+
+```javascript
+class Tips extends React.Component {
+    constructor() {
+        super()
+        this.state = { counter:1 }
+    }
+    addNumber(){
+        this.setState((state) => ({
+            counter: state.counter + 1
+        }))
+    }
+}
 ```
 
 # Button events
@@ -113,123 +164,13 @@ class Ideas extends React.Component {
 }
 ```
 
-# State
-
-Een class kan properties en methods hebben, net zoals in een "gewone" OOP class. In React heb je een speciale `State` variabele. Deze wordt gebruikt om de HTML DOM automatisch te updaten als die variabele verandert. Dit noemen we `Reactive` variabelen!
-
-Gebruik dus altijd `state` als je wil dat een waarde in je UI gebruikt kan worden. 
-
-### State aanmaken in constructor
-```javascript
-this.state = {
-    title:"De titel van mijn app",
-    score:100,
-    hiscore:false
-}
-```
-### State veranderen buiten de constructor
-
-Buiten de constructor gebruik je altijd `setState` om state variabelen te veranderen. Voorbeeld:
-```javascript
-this.setState({score:200})
-```
-
-### State tonen in UI
-
-Je kan state variabelen in de UI plaatsen met `{this.state.title}`:
-
-```javascript
-render() {
-    return (
-        <div>
-            <h1>{this.state.title}</h1>
-        </div>
-    )
-}
-```
-
-### Vorige state aanpassen
-
-Om een bestaande state aan te passen (bijvoorbeeld een nummer ophogen) moet je met een functie de vorige state opvragen:
-
-```javascript
-// counter state aanmaken
-this.state = {
-    counter:2
-}
-
-// één optellen bij de counter
-this.setState((prevState) => ({
-    counter: prevState.counter + 1
-}))
-```
-
-## Voorbeeld
-
-```javascript
-class Ideas extends React.Component {
-    constructor() {
-        super()
-        // begin state
-        this.state = {
-            title: "Dit is een React Demo"
-        }
-    }
-
-    changeTitle() {
-        // state aanpassen
-        this.setState({
-            title: "Dit is een andere titel"
-        }
-    }
-
-    render() {
-        return (
-            <div>
-                <h1>{this.state.title}</h1>
-                <button onClick={() => this.changeTitle()}>Change title</button>
-            </div>
-        );
-    }
-}
-```
-
-
-# Data laden
-
-Door externe JSON in te laden met `fetch` kan je de state van je app aanpassen.
-
-```javascript
-class Ideas extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            ideas: []
-        }
-    }
-
-    // JSON bestand inladen
-    loadJSON() {
-        fetch('./ideas.json')
-            .then((response) => response.json())
-            .then((data) => this.dataWasLoaded(data))
-            .catch((error) => console.error('help'))
-    }
-
-    dataWasLoaded(json) {
-        this.setState({
-            ideas: json.ideas
-        })
-        console.log(this.state.ideas)
-    }
-}
-```
 
 # Vervolg workshop
 
- - [Deel 2](./deel2.md) - FOR loop, IF statement, Props
- - [Deel 3](./deel3.md) - Werken met CSS
- - [Deel 4](./deel4.md) - Een React app compileren
+ - [Deel 2](./tutorial/deel2.md) - FOR loop, IF statement in een component
+ - [Deel 3](./tutorial/deel3.md) - JSON data laden
+ - [Deel 4](./tutorial/deel4.md) - Props, Reageren op Child Components
+ - [Deel 5](./tutorial/deel5.md) - CSS
 
 # Meer lezen
 

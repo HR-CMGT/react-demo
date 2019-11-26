@@ -1,6 +1,4 @@
-# React Workshop deel 3
-
-## CSS 
+# CSS
 
 Gebruik `className` in plaats van `class` om een element een specifieke css class mee te geven.
 
@@ -9,7 +7,7 @@ render() {
   return <div className="ideas">Ideas</div>
 }
 ```
-In CSS kan je deze class name gebruiken om alles dat in het component staat een style te geven:
+In CSS kan je deze class name voor alle tags zetten, zodat de opmaak alleen voor dat component geldt:
 
 ```css
 .ideas {
@@ -65,9 +63,6 @@ class Ideas extends React.Component {
     }
 }
 ```
-# Finished workshop files
-
-De finished files kan je vinden in de [finished branch](https://github.com/HR-CMGT/react-workshop/tree/finished) van deze repository.
 
 # Meer React concepten
 
@@ -86,6 +81,8 @@ Je weet nu genoeg om zelf verder te kunnen leren op de [React Tutorial Site](htt
 11. Composition vs Inheritance
 12. Thinking In React
 
-# Vervolg workshop
+# Babel compiler
 
- - [Deel 4](./deel4.md) - Een React app live zetten
+Tot nu toe hebben we *live* in de browser de React JSX componenten omgezet naar normale HTML/Javascript. Voor de performance is het beter om dit vantevoren te doen.
+
+In deel 2 van de workshop gaan we JSX files compileren met Babel.
