@@ -1,6 +1,6 @@
 # React Workshop deel 2
 
-- For loops
+- For loops en arrays
 - If statements
 
 ## For Loops
@@ -28,6 +28,16 @@ class Ideas extends React.Component {
         )
     }
 }
+```
+
+## Een waarde toevoegen aan de state array
+
+Omdat je altijd via `setState()` moet werken, kan je niet via `this.state.ideas.push("idee")` een item aan een array toevoegen.
+
+In plaats daarvan moet je via `setState(ideas:newArray)` een nieuwe array doorgeven, die alle waarden van de oude array bevat, plus de nieuwe waarde. De kortste manier om dat te doen is:
+
+```javascript
+this.setState({ ideas: [...this.state.ideas, 'nieuw idee'] }) 
 ```
 
 ## IF statement
