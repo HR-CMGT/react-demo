@@ -37,5 +37,5 @@ Maak ook een `render()` functie die de inhoud van de JSON array toont als `<li>`
 
 # Vervolg workshop
 
- - [Deel 4](./tutorial/deel4.md) - Props, Reageren op Child Components
- - [Deel 5](./tutorial/deel5.md) - CSS
+ - [Deel 4](./deel4.md) - Props, Reageren op Child Components
+ - [Deel 5](./deel5.md) - CSS

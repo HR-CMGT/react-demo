@@ -120,9 +120,9 @@ Plaats het `<LikeButton /> component in de Ideas en Tips componenten!
 
 # Vervolg workshop
 
- - [Deel 3](./tutorial/deel3.md) - JSON data laden
- - [Deel 4](./tutorial/deel4.md) - Props, Reageren op Child Components
- - [Deel 5](./tutorial/deel5.md) - CSS
+ - [Deel 3](./deel3.md) - JSON data laden
+ - [Deel 4](./deel4.md) - Props, Reageren op Child Components
+ - [Deel 5](./deel5.md) - CSS
 
 # Meer lezen
 
