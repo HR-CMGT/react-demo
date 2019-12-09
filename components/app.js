@@ -1,14 +1,13 @@
 class App extends React.Component {
     constructor() {
-        super();
+        super()
     }
 
     render() {
         return (
             <div>
                 <h4>React Demo App</h4>
-                <Ideas/>
-                <Tips/>
+                <p>Plaats hier de ideas/tips componenten</p>
             </div>
         );
     }

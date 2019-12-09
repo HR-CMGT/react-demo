@@ -5,14 +5,14 @@ class Ideas extends React.Component {
     }
 
     changeIdeas() {
-        console.log("verander hier de titel met setState()")
+        console.log("verander hier de titel met gebruik van setState()")
     }
 
     render() {
         return (
             <div>
-                <h1>{this.state.title}</h1>
-                <button onClick={() => this.changeIdeas()}>Verander de titel</button>
+                <h1>Plaats hier de state title</h1>
+                <button>Verander de titel</button>
             </div>
         );
     }

@@ -16,10 +16,16 @@ button {
     padding: 8px;
 }
 
-/* demo, dit kan weg, lees de CSS tutorial voor het stylen van CSS componenten */
-#root > div > div {
-    background-color: rgb(238, 238, 238);
-    margin: 10px;
+.ideas {
+    background-color: #CCC;
+    margin: 15px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.tips {
+    background-color: #CCC;
+    margin: 15px;
     padding: 10px;
     border-radius: 10px;
 }
