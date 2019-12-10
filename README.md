@@ -22,6 +22,10 @@ Je kan rechtstreeks in de `.js` files werken om de React componenten aan te pass
 Een component heeft een constructor en methods, net zoals een gewone class. Een component heeft een `render` functie die de UI toont. De `constructor` kan weg als je daar verder geen code in zet.
 ```javascript
 class Tips extends React.Component {
+    constructor(){
+        super()
+        console.log("Ik ben een component")
+    }
     render() {
         return (
             <div>
