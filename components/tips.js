@@ -1,6 +1,6 @@
 class Tips extends React.Component {
     constructor() {
-        super();
+        super()
     }
 
     render() {

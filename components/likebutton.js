@@ -5,10 +5,10 @@ class LikeButton extends React.Component {
     }
 
     render() {
-        if (this.state.liked) {
-            // return hier alleen de tekst "you liked this"
-        } else {
-            // return hier een button die de like state kan veranderen
-        }
+        // 1 - maak like TRUE als er geklikt is
+        // 2 - gebruik IF om het bericht "je hebt geklikt" terug te sturen ALS liked true is
+        // 3 - als liked FALSE is, return je de button
+        // 4 - plaats like button in de andere componenten
+        return <button>LIKE!</button>
     }
 }
